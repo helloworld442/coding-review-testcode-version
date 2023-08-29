@@ -12,9 +12,11 @@ describe("ReviewForm", () => {
       </TestProvider>
     );
 
+    const reviewFormBanner = screen.getByTestId("review-form-banner");
     const reviewCodeForm = screen.getByTestId("review-code-form");
     const reivewInfoForm = screen.getByTestId("review-info-form");
 
+    expect(reviewFormBanner).toBeInTheDocument();
     expect(reviewCodeForm).toBeInTheDocument();
     expect(reivewInfoForm).toBeInTheDocument();
   });
@@ -63,7 +65,7 @@ describe("ReviewForm", () => {
       </TestProvider>
     );
 
-    const reviewInfoFormButton = screen.getByText("글 등록");
+    const reviewInfoFormButton = screen.getByText("등록");
 
     fireEvent.click(reviewInfoFormButton);
 
@@ -85,11 +87,31 @@ describe("ReviewForm", () => {
 
     const reviewInfoFormInput = screen.getByPlaceholderText("제목을 입력하세요");
     const reviewInfoFormTextArea = screen.getByPlaceholderText("문제상황을 입력하세요");
-    const reviewInfoFormButton = screen.getByText("글 등록");
+    const reviewInfoFormButton = screen.getByText("등록");
 
     fireEvent.change(reviewInfoFormInput, { target: { value: "test1234" } });
     fireEvent.change(reviewInfoFormTextArea, { target: { value: "test1234" } });
     fireEvent.click(reviewInfoFormButton);
+
+    setTimeout(() => {
+      expect(reviewInfoFormInput.value).toBe("");
+      expect(reviewInfoFormTextArea.value).toBe("");
+    }, 0);
+  });
+  test("ReviewForm에 취소 버튼을 눌렀을 때 기존의 값들이 지워지는 지 확인", () => {
+    render(
+      <TestProvider>
+        <ReviewForm />
+      </TestProvider>
+    );
+
+    const reviewInfoFormInput = screen.getByPlaceholderText("제목을 입력하세요");
+    const reviewInfoFormTextArea = screen.getByPlaceholderText("문제상황을 입력하세요");
+    const reviewCancelButton = screen.getByText("취소");
+
+    fireEvent.change(reviewInfoFormInput, { target: { value: "test1234" } });
+    fireEvent.change(reviewInfoFormTextArea, { target: { value: "test1234" } });
+    fireEvent.click(reviewCancelButton);
 
     setTimeout(() => {
       expect(reviewInfoFormInput.value).toBe("");

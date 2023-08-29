@@ -27,7 +27,9 @@ const Header = ({ isBackground }) => {
           active: scrollY > 50 || isBackground === "false",
         })}
       >
-        <h2 className="header-nav-logo">별무리 스튜디오</h2>
+        <h2 className="header-nav-logo">
+          <a href="/">별무리 스튜디오</a>
+        </h2>
         <ul className="header-nav-menu">
           <li className="header-nav-item">
             <a href="/write">글쓰기</a>

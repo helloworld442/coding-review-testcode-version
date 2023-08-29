@@ -38,6 +38,14 @@ const ReviewForm = () => {
     return "";
   };
 
+  const onClickCancelButton = (e) => {
+    e.preventDefault();
+
+    setForm({ tags: [], tag: "", title: "", problem: "", question: "" });
+
+    navigateTo("/");
+  };
+
   const onKeyDownTag = (e) => {
     if (e.key === " ") {
       const newValue = e.target.value + " ";
@@ -95,52 +103,66 @@ const ReviewForm = () => {
   };
 
   return (
-    <form className="review-form" onSubmit={onSubmitReview}>
-      <div data-testid="review-code-form" className="review-code-form">
-        <h2 className="review-code-form-title">
-          <span>1</span>코드 리뷰를 위한 코드를 입력해주세요
-        </h2>
-        <div className="review-code-form-content">
-          <EditorTemplate>
-            <EditorForm onCode={onChangeCode} />
-            <EditorCode code={form.code} />
-          </EditorTemplate>
+    <div className="review-form-container">
+      <article data-testid="review-form-banner" className="review-form-banner">
+        <div className="form-banner-box">
+          <h2>코드리뷰를 위한 글을 작성해보세요!!</h2>
+          <h4>많은 분들이 코드리뷰를 진행하고 있습니다!! 🥳</h4>
         </div>
-      </div>
-      <div data-testid="review-info-form" className="review-info-form">
-        <h2 className="review-info-form-title">
-          <span>2</span>코드 리뷰를 위한 정보를 입력해주세요
-        </h2>
+      </article>
 
-        <div className="review-info-form-content">
-          <ReviewFormInput
-            label="제목"
-            code={form.tag}
-            error={errors.title}
-            onInput={onChangeTitle}
-            onKeyDown={onKeyDownTag}
-            placeholder="제목을 입력하세요"
-          />
-          <ReviewTextArea
-            label="문제상황"
-            value={form.problem}
-            error={errors.problem}
-            onInput={onChangeProblem}
-            placeholder="문제상황을 입력하세요"
-          />
-          <ReviewTextArea
-            label="궁금한 점"
-            value={form.question}
-            error={errors.question}
-            onInput={onChangeQuestion}
-            placeholder="궁금한 황을 입력하세요"
-          />
-          <Button id="review-form-code-button" size="large" primary fullWidth type="submit">
-            글 등록
-          </Button>
+      <form className="review-form" onSubmit={onSubmitReview}>
+        <div data-testid="review-code-form" className="review-code-form">
+          <h2 className="review-code-form-title">
+            <span>1</span>코드 리뷰를 위한 코드를 입력해주세요
+          </h2>
+          <div className="review-code-form-content">
+            <EditorTemplate>
+              <EditorForm onCode={onChangeCode} />
+              <EditorCode code={form.code} />
+            </EditorTemplate>
+          </div>
         </div>
-      </div>
-    </form>
+        <div data-testid="review-info-form" className="review-info-form">
+          <h2 className="review-info-form-title">
+            <span>2</span>코드 리뷰를 위한 정보를 입력해주세요
+          </h2>
+
+          <div className="review-info-form-content">
+            <ReviewFormInput
+              label="제목"
+              code={form.tag}
+              error={errors.title}
+              onInput={onChangeTitle}
+              onKeyDown={onKeyDownTag}
+              placeholder="제목을 입력하세요"
+            />
+            <ReviewTextArea
+              label="문제상황"
+              value={form.problem}
+              error={errors.problem}
+              onInput={onChangeProblem}
+              placeholder="문제상황을 입력하세요"
+            />
+            <ReviewTextArea
+              label="궁금한 점"
+              value={form.question}
+              error={errors.question}
+              onInput={onChangeQuestion}
+              placeholder="궁금한 황을 입력하세요"
+            />
+          </div>
+          <div className="review-form-buttons">
+            <Button size="medium" onClick={onClickCancelButton}>
+              취소
+            </Button>
+            <Button size="medium" primary type="submit">
+              등록
+            </Button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 
