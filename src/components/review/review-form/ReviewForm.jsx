@@ -4,13 +4,30 @@ import { Button } from "../../ui/button/Button";
 import { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
-// import { postReviews } from "../../../api/review";
+import { EditorCode, EditorForm, EditorTemplate } from "../../editor";
+import { postReviews } from "../../../api/review";
 
 const ReviewForm = () => {
-  // const navigateTo = useNavigate();
-  // const queryClient = useQueryClient();
-  const [form, setForm] = useState({ tags: [], tag: "", title: "", problem: "", question: "" });
+  const navigateTo = useNavigate();
+  const queryClient = useQueryClient();
+  const [form, setForm] = useState({
+    tags: [],
+    tag: "",
+    title: "",
+    problem: "",
+    question: "",
+    code: "",
+  });
   const [errors, setErrors] = useState({ title: "", problem: "", question: "" });
+  const reviewMutation = useMutation(postReviews, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("reviews");
+      navigateTo("/");
+    },
+    onError: (err) => {
+      console.log("[DEBUG] review form error: " + err);
+    },
+  });
 
   const validateTitle = (title) => {
     if (title.trim() === "") return "제목을 입력해주세요";
@@ -60,6 +77,10 @@ const ReviewForm = () => {
     setErrors((prev) => ({ ...prev, question: "" }));
   };
 
+  const onChangeCode = (value) => {
+    setForm((prev) => ({ ...prev, code: value }));
+  };
+
   const onSubmitReview = (e) => {
     e.preventDefault();
 
@@ -76,6 +97,8 @@ const ReviewForm = () => {
       return "";
     }
 
+    reviewMutation.mutate(form);
+
     setForm({ tags: [], tag: "", title: "", problem: "", question: "" });
   };
 
@@ -85,12 +108,18 @@ const ReviewForm = () => {
         <h2 className="review-code-form-title">
           <span>1</span>코드 리뷰를 위한 코드를 입력해주세요
         </h2>
-        <div className="review-code-form-content"></div>
+        <div className="review-code-form-content">
+          <EditorTemplate>
+            <EditorForm onCode={onChangeCode} />
+            <EditorCode code={form.code} />
+          </EditorTemplate>
+        </div>
       </div>
       <div data-testid="review-info-form" className="review-info-form">
         <h2 className="review-info-form-title">
           <span>2</span>코드 리뷰를 위한 정보를 입력해주세요
         </h2>
+
         <div className="review-info-form-content">
           <ReviewFormInput
             label="제목"
