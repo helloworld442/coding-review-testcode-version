@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Header.scss";
 import classNames from "classnames";
 
-const Header = () => {
+const Header = ({ isBackground }) => {
   const [scrollY, setScrollY] = useState(0);
 
   const onScrollHandler = () => {
@@ -16,15 +16,21 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={classNames("header", { active: scrollY > 50 })}>
+    <header
+      className={classNames("header", {
+        active: scrollY > 50 || isBackground === "false",
+      })}
+    >
       <nav
         data-testid="header-nav"
-        className={classNames("header-nav", { active: scrollY > 50 })}
+        className={classNames("header-nav", {
+          active: scrollY > 50 || isBackground === "false",
+        })}
       >
         <h2 className="header-nav-logo">별무리 스튜디오</h2>
         <ul className="header-nav-menu">
           <li className="header-nav-item">
-            <a href="#">글쓰기</a>
+            <a href="/write">글쓰기</a>
           </li>
           <li className="header-nav-item">
             <a href="#">회원가입</a>
@@ -37,12 +43,15 @@ const Header = () => {
 
       <aside
         data-testid="header-aside"
-        className={classNames("header-aside", { active: scrollY > 50 })}
+        className={classNames("header-aside", {
+          active: scrollY > 50 || isBackground === "false",
+        })}
       >
         <div className="header-aside-desc">
           <h2>코드리뷰 사이트 별무리</h2>
           <h4>서로 코드를 리뷰하는 사이트입니다</h4>
         </div>
+
         <span className="header-aside-plants">
           <span id="sun"></span>
           <span id="moon"></span>

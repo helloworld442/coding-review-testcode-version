@@ -28,4 +28,14 @@ describe("Header", () => {
       expect(headerAside).toHaveClass("header-aside active");
     }, 0);
   });
+
+  test("Header 영역에 isBackground가 false라는 props를 넘겨줄 때 active라는 클래스가 붙는지 확인", () => {
+    render(<Header isBackground="false" />);
+
+    const headerNav = screen.getByTestId("header-nav");
+    const headerAside = screen.getByTestId("header-aside");
+
+    expect(headerNav).toHaveClass("header-nav active");
+    expect(headerAside).toHaveClass("header-aside active");
+  });
 });
