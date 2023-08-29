@@ -152,14 +152,14 @@ const ReviewForm = () => {
               placeholder="궁금한 황을 입력하세요"
             />
           </div>
-          <div className="review-form-buttons">
-            <Button size="medium" onClick={onClickCancelButton}>
-              취소
-            </Button>
-            <Button size="medium" primary type="submit">
-              등록
-            </Button>
-          </div>
+        </div>
+        <div className="review-form-buttons">
+          <Button size="medium" onClick={onClickCancelButton}>
+            취소
+          </Button>
+          <Button size="medium" primary type="submit">
+            등록
+          </Button>
         </div>
       </form>
     </div>
