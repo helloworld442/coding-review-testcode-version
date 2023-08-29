@@ -1,11 +1,16 @@
-import { useState } from "react";
-import { ReviewFormInput, ReviewTextArea } from "../../ui";
 import "./ReviewForm.scss";
+import { ReviewFormInput, ReviewTextArea } from "../../ui";
 import { Button } from "../../ui/button/Button";
+import { useState } from "react";
+import { useMutation, useQueryClient } from "react-query";
+import { useNavigate } from "react-router-dom";
 
 const ReviewForm = () => {
+  const navigateTo = useNavigate();
+  const queryClient = useQueryClient();
   const [form, setForm] = useState({ tags: [], tag: "", title: "", problem: "", question: "" });
   const [errors, setErrors] = useState({ title: "", problem: "", question: "" });
+  // const reviewMutation = useMutation()
 
   const validateTitle = (title) => {
     if (title.trim() === "") return "제목을 입력해주세요";
@@ -73,6 +78,8 @@ const ReviewForm = () => {
 
     setForm({ tags: [], tag: "", title: "", problem: "", question: "" });
   };
+
+  console.log(form);
 
   return (
     <form className="review-form" onSubmit={onSubmitReview}>

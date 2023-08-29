@@ -45,5 +45,20 @@ describe("ReviewForm", () => {
     expect(reviewInfoFormTextAreaValidation).toBeInTheDocument();
   });
 
-  test.skip("ReviewForm의 값을 제출했을 때 값이 초기화 되는 지 확인", () => {});
+  test("ReviewForm의 값을 제출했을 때 값이 초기화 되는 지 확인", () => {
+    render(<ReviewForm />);
+
+    const reviewInfoFormInput = screen.getByPlaceholderText("제목을 입력하세요");
+    const reviewInfoFormTextArea = screen.getByPlaceholderText("문제상황을 입력하세요");
+    const reviewInfoFormButton = screen.getByText("글 등록");
+
+    fireEvent.change(reviewInfoFormInput, { target: { value: "test1234" } });
+    fireEvent.change(reviewInfoFormTextArea, { target: { value: "test1234" } });
+    fireEvent.click(reviewInfoFormButton);
+
+    setTimeout(() => {
+      expect(reviewInfoFormInput.value).toBe("");
+      expect(reviewInfoFormTextArea.value).toBe("");
+    }, 0);
+  });
 });
