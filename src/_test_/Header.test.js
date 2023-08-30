@@ -52,7 +52,7 @@ describe("Header", () => {
     fireEvent.click(headerLogoAnchor);
 
     setTimeout(() => {
-      expect(window.location.pathname).toEqual("/write");
+      expect(window.location.pathname).toEqual("/");
     }, 0);
   });
 

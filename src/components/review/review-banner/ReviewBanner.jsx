@@ -15,7 +15,7 @@ const ReviewBanner = () => {
   return (
     <div data-testid="review-banner" className="review-banner">
       <ul className="review-banner-menu">
-        {data.map((item) => (
+        {data.slice(0, 3).map((item) => (
           <li data-testid="review-banner-item" className="review-banner-item" key={item.id}>
             <h3 className="banner-item-title">
               <span className="banner-item-status">답변진행 중</span>

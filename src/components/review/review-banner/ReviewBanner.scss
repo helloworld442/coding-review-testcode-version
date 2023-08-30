@@ -8,10 +8,9 @@
   width: calc(100% - 72px);
   height: 350px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 36px;
 }
 
 .review-banner-item {
@@ -24,10 +23,15 @@
   border-radius: 10px;
   background: #fff;
   cursor: pointer;
+  transition: all 0.8s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .banner-item-title {
-  margin-bottom: 12px;
+  margin-bottom: 24px;
   font-size: 1.6rem;
   font-weight: bold;
   color: #333;
@@ -55,18 +59,18 @@
 }
 
 .banner-item-tags {
-  margin-bottom: 12px;
+  margin-bottom: 24px;
   display: flex;
   gap: 12px;
 }
 
 .banner-item-content {
-  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .banner-item-problem,
 .banner-item-question {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: bold;
   color: #333;
   line-height: 2rem;
@@ -85,10 +89,9 @@
 }
 
 .banner-item-info {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
+  display: block;
   display: flex;
+  justify-content: flex-end;
   gap: 12px;
   font-size: 1.2rem;
 
