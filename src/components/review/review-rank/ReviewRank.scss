@@ -1,0 +1,49 @@
+.review-rank {
+  width: 260px;
+  height: auto;
+  padding: 24px;
+  margin-left: 36px;
+  box-sizing: border-box;
+  border: 2px solid #bbb;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.review-rank-title {
+  margin-bottom: 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.review-rank-menu {
+  width: 100%;
+  height: 500px;
+  border: 2px solid green;
+  box-sizing: border-box;
+}
+
+.review-rank-item {
+  position: relative;
+  width: 100%;
+  padding: 24px 0;
+}
+
+.rank-item-profile {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+  border: 2px solid #eee;
+  border-radius: 100%;
+  background: #403a6b;
+}
+.rank-item-name {
+  position: absolute;
+  top: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  display: inline-block;
+  transform: translateY(-50%);
+}
