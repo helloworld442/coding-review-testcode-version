@@ -1,5 +1,5 @@
 import "./ReviewForm.scss";
-import { ReviewFormInput, ReviewTextArea, Button } from "../../ui";
+import { ReviewFormInput, ReviewFormTextArea, Button } from "../../ui";
 import { EditorCode, EditorForm, EditorTemplate } from "../../editor";
 import { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
@@ -116,6 +116,7 @@ const ReviewForm = () => {
           <h2 className="review-code-form-title">
             <span>1</span>코드 리뷰를 위한 코드를 입력해주세요
           </h2>
+
           <div className="review-code-form-content">
             <EditorTemplate>
               <EditorForm onCode={onChangeCode} />
@@ -137,14 +138,14 @@ const ReviewForm = () => {
               onKeyDown={onKeyDownTag}
               placeholder="제목을 입력하세요"
             />
-            <ReviewTextArea
+            <ReviewFormTextArea
               label="문제상황"
               value={form.problem}
               error={errors.problem}
               onInput={onChangeProblem}
               placeholder="문제상황을 입력하세요"
             />
-            <ReviewTextArea
+            <ReviewFormTextArea
               label="궁금한 점"
               value={form.question}
               error={errors.question}

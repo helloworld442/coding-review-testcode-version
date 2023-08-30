@@ -1,6 +1,6 @@
 import TextArea from "./TextArea";
 
-const ReviewTextArea = ({ label, value, error, onInput, placeholder }) => {
+const ReviewFormTextArea = ({ label, value, error, onInput, placeholder }) => {
   return (
     <TextArea label={label}>
       <TextArea.Value value={value} onChange={onInput} placeholder={placeholder} />
@@ -9,4 +9,4 @@ const ReviewTextArea = ({ label, value, error, onInput, placeholder }) => {
   );
 };
 
-export { ReviewTextArea };
+export { ReviewFormTextArea };

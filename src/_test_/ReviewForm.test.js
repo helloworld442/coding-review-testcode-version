@@ -78,7 +78,7 @@ describe("ReviewForm", () => {
     expect(reviewInfoFormTextAreaValidation).toBeInTheDocument();
   });
 
-  test("ReviewForm의 값을 제출했을 때 값이 초기화 되는 지 확인", () => {
+  test("ReviewForm의 값을 제출했을 때 값이 초기화 되는 지 확인", async () => {
     render(
       <TestProvider>
         <ReviewForm />
