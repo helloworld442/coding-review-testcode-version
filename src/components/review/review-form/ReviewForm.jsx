@@ -102,6 +102,10 @@ const ReviewForm = () => {
     setForm({ tags: [], tag: "", title: "", problem: "", question: "" });
   };
 
+  if (reviewMutation.isLoading) return <div>loading....</div>;
+
+  if (reviewMutation.isError) return <div>errors....</div>;
+
   return (
     <div className="review-form-container">
       <article data-testid="review-form-banner" className="review-form-banner">
@@ -150,7 +154,7 @@ const ReviewForm = () => {
               value={form.question}
               error={errors.question}
               onInput={onChangeQuestion}
-              placeholder="궁금한 황을 입력하세요"
+              placeholder="궁금한 점을 입력하세요"
             />
           </div>
         </div>

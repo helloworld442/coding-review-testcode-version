@@ -18,13 +18,15 @@ const Header = ({ isBackground }) => {
   return (
     <header
       className={classNames("header", {
-        active: scrollY > 50 || isBackground === "false",
+        active: scrollY > 50,
+        isBackground: isBackground === "false",
       })}
     >
       <nav
         data-testid="header-nav"
         className={classNames("header-nav", {
-          active: scrollY > 50 || isBackground === "false",
+          active: scrollY > 50,
+          isBackground: isBackground === "false",
         })}
       >
         <h2 className="header-nav-logo">
@@ -46,7 +48,8 @@ const Header = ({ isBackground }) => {
       <aside
         data-testid="header-aside"
         className={classNames("header-aside", {
-          active: scrollY > 50 || isBackground === "false",
+          active: scrollY > 50,
+          isBackground: isBackground === "false",
         })}
       >
         <div className="header-aside-desc">

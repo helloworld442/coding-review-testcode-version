@@ -36,8 +36,8 @@ describe("Header", () => {
     const headerNav = screen.getByTestId("header-nav");
     const headerAside = screen.getByTestId("header-aside");
 
-    expect(headerNav).toHaveClass("header-nav active");
-    expect(headerAside).toHaveClass("header-aside active");
+    expect(headerNav).toHaveClass("header-nav isBackground");
+    expect(headerAside).toHaveClass("header-aside isBackground");
   });
 
   test("Header 영역에 Logo를 눌렀을 때 / 경로로 이동하는 지 확인", async () => {

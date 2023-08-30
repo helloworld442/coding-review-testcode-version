@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { ReviewForm } from "../components/review";
 import TestProvider from "./test.util";
@@ -78,7 +78,7 @@ describe("ReviewForm", () => {
     expect(reviewInfoFormTextAreaValidation).toBeInTheDocument();
   });
 
-  test("ReviewForm의 값을 제출했을 때 값이 초기화 되는 지 확인", async () => {
+  test("ReviewForm의 값을 제출했을 때 mutate로 data가 보내지고 값이 초기화 되는 지 확인", async () => {
     render(
       <TestProvider>
         <ReviewForm />
@@ -93,12 +93,16 @@ describe("ReviewForm", () => {
     fireEvent.change(reviewInfoFormTextArea, { target: { value: "test1234" } });
     fireEvent.click(reviewInfoFormButton);
 
+    const loadingText = screen.findByText("loading....");
+
     setTimeout(() => {
+      expect(loadingText).toBeInTheDocument();
       expect(reviewInfoFormInput.value).toBe("");
       expect(reviewInfoFormTextArea.value).toBe("");
+      expect(window.location.pathname).toEqual("/");
     }, 0);
   });
-  test("ReviewForm에 취소 버튼을 눌렀을 때 기존의 값들이 지워지는 지 확인", () => {
+  test("ReviewForm에 취소 버튼을 눌렀을 때 메인페이지로 이동하는지 확인", () => {
     render(
       <TestProvider>
         <ReviewForm />
@@ -113,9 +117,13 @@ describe("ReviewForm", () => {
     fireEvent.change(reviewInfoFormTextArea, { target: { value: "test1234" } });
     fireEvent.click(reviewCancelButton);
 
+    const loadingText = screen.findByText("loading....");
+
     setTimeout(() => {
+      expect(loadingText).not.toBeInTheDocument();
       expect(reviewInfoFormInput.value).toBe("");
       expect(reviewInfoFormTextArea.value).toBe("");
+      expect(window.location.pathname).toEqual("/");
     }, 0);
   });
 });

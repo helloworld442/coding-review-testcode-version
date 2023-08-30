@@ -8,9 +8,10 @@
   width: calc(100% - 72px);
   height: 350px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .review-banner-item {
@@ -30,13 +31,11 @@
   font-size: 1.6rem;
   font-weight: bold;
   color: #333;
-  white-space: nowrap;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 18px;
 
   &:hover {
     color: rgb(64, 58, 107, 0.5);
@@ -44,7 +43,9 @@
 }
 
 .banner-item-status {
+  display: inline-block;
   padding: 10px 18px;
+  margin-right: 12px;
   border: 5px solid #e8e8e8;
   border-radius: 12px;
   font-size: 1.2rem;
