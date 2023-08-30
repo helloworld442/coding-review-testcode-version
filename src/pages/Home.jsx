@@ -1,4 +1,11 @@
-import { ReviewBanner, ReviewRank, ReviewTemplate } from "../components/review";
+import {
+  ReviewBanner,
+  ReviewList,
+  ReviewListTemplate,
+  ReviewRank,
+  ReviewTag,
+  ReviewTemplate,
+} from "../components/review";
 import { Header, Layout } from "../components/ui";
 
 const Home = () => {
@@ -7,7 +14,11 @@ const Home = () => {
       <Header isBackground="true" />
       <ReviewTemplate>
         <ReviewBanner />
-        <ReviewRank />
+        <ReviewListTemplate>
+          <ReviewRank />
+          <ReviewList />
+          <ReviewTag />
+        </ReviewListTemplate>
       </ReviewTemplate>
     </Layout>
   );
