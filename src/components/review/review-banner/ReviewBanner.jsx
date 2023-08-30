@@ -22,8 +22,9 @@ const ReviewBanner = () => {
               {item.title}
             </h3>
             <div className="banner-item-tags">
-              <Tag title="#리엑트" />
-              <Tag title="#재밌다" />
+              {item.tags.map((tag, i) => (
+                <Tag key={i} title={tag} />
+              ))}
             </div>
             <div className="banner-item-content">
               <h2 className="banner-item-problem">
