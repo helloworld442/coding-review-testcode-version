@@ -6,7 +6,7 @@ import {
   ReviewTag,
   ReviewTemplate,
 } from "../components/review";
-import { Header, Layout } from "../components/ui";
+import { Footer, Header, Layout } from "../components/ui";
 
 const Home = () => {
   return (
@@ -20,6 +20,7 @@ const Home = () => {
           <ReviewTag />
         </ReviewListTemplate>
       </ReviewTemplate>
+      <Footer />
     </Layout>
   );
 };
