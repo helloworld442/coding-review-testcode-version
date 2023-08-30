@@ -4,6 +4,14 @@
   margin-bottom: 36px;
 }
 
+.review-banner-title {
+  width: calc(100% - 72px);
+  margin: 36px auto;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
 .review-banner-menu {
   width: calc(100% - 72px);
   height: auto;
