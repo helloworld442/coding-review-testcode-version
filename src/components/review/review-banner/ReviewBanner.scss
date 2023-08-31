@@ -112,9 +112,17 @@
 }
 
 @include tablet {
+  .review-banner-menu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .review-banner-item {
     &:nth-child(3) {
       display: none;
     }
+  }
+
+  .banner-item-title {
+    width: 300px;
   }
 }
