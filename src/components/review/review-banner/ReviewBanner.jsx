@@ -2,6 +2,7 @@ import "./ReviewBanner.scss";
 import { Tag } from "../../ui";
 import { useQuery } from "react-query";
 import { getReviews } from "../../../api/review";
+import { Link } from "react-router-dom";
 
 const ReviewBanner = () => {
   const { isLoading, isError, data, error } = useQuery("reviews", getReviews);
@@ -20,7 +21,7 @@ const ReviewBanner = () => {
           <li data-testid="review-banner-item" className="review-banner-item" key={item.id}>
             <h3 className="banner-item-title">
               <span className="banner-item-status">답변진행 중</span>
-              {item.title}
+              <Link to={"/detail/" + item.id}>{item.title}</Link>
             </h3>
             <div className="banner-item-tags">
               {item.tags.map((tag, i) => (
