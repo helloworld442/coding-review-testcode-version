@@ -5,3 +5,4 @@ export * from "./review-template/ReviewListTemplate";
 export * from "./review-rank/ReviewRank";
 export * from "./review-list/ReviewList";
 export * from "./review-tag/ReviewTag";
+export * from "./review-detail/ReviewDetail";

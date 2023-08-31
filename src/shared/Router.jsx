@@ -3,6 +3,7 @@ import { Suspense, lazy } from "react";
 
 const Home = lazy(() => import("../pages/Home"));
 const Write = lazy(() => import("../pages/Write"));
+const Detail = lazy(() => import("../pages/Detail"));
 
 const Router = () => {
   return (
@@ -11,6 +12,7 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/write" element={<Write />} />
+          <Route path="/detail" element={<Detail />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

@@ -1,0 +1,118 @@
+.review-detail {
+  width: 100%;
+  height: auto;
+  margin-top: 80px;
+}
+
+.review-detail-question {
+  width: 100%;
+  height: auto;
+  padding: 24px 0;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.review-detail-answer {
+  width: 100%;
+  height: auto;
+  padding: 24px 0;
+  box-sizing: border-box;
+}
+
+.detail-question-title,
+.detail-answer-title {
+  width: 900px;
+  margin: 0 auto;
+  border-bottom: 3px solid #e8e8e8;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+
+  span {
+    font-size: 5rem;
+    font-weight: bold;
+    color: rgb(64, 58, 107, 0.8);
+  }
+}
+
+.detail-question-content {
+  width: 900px;
+  margin: 12px auto;
+}
+
+.question-content-title {
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  span {
+    width: 36px;
+    height: 36px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #eee;
+    border: 5px solid #e8e8e8;
+    border-radius: 100%;
+    background: #403a6b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.question-content-code {
+  width: 100%;
+  height: 500px;
+  padding: 0.5rem;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: monospace;
+  color: #eee;
+  caret-color: red;
+  z-index: 99;
+  white-space: pre-wrap;
+  overflow-y: scroll;
+  line-height: 1.5rem;
+}
+
+.question-content-info {
+  width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  h4 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: rgb(64, 58, 107, 0.8);
+  }
+
+  pre {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: "Jua", sans-serif;
+    color: #333;
+  }
+}
+
+.review-detail-answer {
+}
