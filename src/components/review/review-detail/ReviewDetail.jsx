@@ -1,13 +1,25 @@
+import { useQuery } from "react-query";
 import { Button, ReviewDetailInput, ReviewDetailTextArea } from "../../ui";
 import "./ReviewDetail.scss";
+import { useParams } from "react-router-dom";
+import { getReviewById } from "../../../api/review";
 
 const ReviewDetail = () => {
+  const { postId } = useParams();
+  const { isLoading, isError, data, error } = useQuery(["reviews", postId], () =>
+    getReviewById(postId)
+  );
+
+  if (isLoading) return <div>loading....</div>;
+
+  if (isError) return <div>error....</div>;
+
   return (
     <div className="review-detail">
       <div className="review-detail-question">
         <h1 className="detail-question-title">
           <span>Q.</span>
-          리엑트가 정말 재밌네요!!!
+          {data.title}
         </h1>
         <div className="detail-question-content">
           <h2 className="question-content-title">
@@ -19,9 +31,9 @@ const ReviewDetail = () => {
           </h2>
           <div className="question-content-info">
             <h4>문제상황</h4>
-            <pre>ㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㄹㅁㄴㄹㅁ</pre>
+            <pre>{data.problem}</pre>
             <h4>궁금한 점</h4>
-            <pre>ㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㄹㅁㅇㄴㄹ</pre>
+            <pre>{data.question}</pre>
           </div>
         </div>
       </div>
