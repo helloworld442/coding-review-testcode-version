@@ -49,20 +49,23 @@ const ReviewForm = () => {
   const onKeyDownTag = (e) => {
     if (e.key === " ") {
       const newValue = e.target.value + " ";
-      const tags = newValue.match(/#([\S]+)/g);
+      const tags = newValue.match(/#([ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9_]+)/g);
       setForm((prev) => ({ ...prev, tags }));
     }
 
     if (e.key === "Backspace") {
       const newValue = e.target.value.slice(0, -1);
-      const tags = newValue.match(/#([\S]+) /g);
+      const tags = newValue.match(/#([ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9_]+) /g);
       setForm((prev) => ({ ...prev, tags }));
     }
   };
 
   const onChangeTitle = (e) => {
-    const tag = e.target.value.replace(/#([\S]+) /g, '<span class="colorful-text">#$1 </span>');
-    const value = e.target.value.replace(/#([\S]+) /g, "");
+    const tag = e.target.value.replace(
+      /#([ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9_]+) /g,
+      '<span class="colorful-text">#$1 </span>'
+    );
+    const value = e.target.value.replace(/#([ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9_]+) /g, "");
     setForm((prev) => ({ ...prev, title: value, tag }));
     setErrors((prev) => ({ ...prev, title: "" }));
   };
@@ -101,6 +104,8 @@ const ReviewForm = () => {
 
     setForm({ tags: [], tag: "", title: "", problem: "", question: "" });
   };
+
+  console.log(form);
 
   if (reviewMutation.isLoading) return <div>loading....</div>;
 
