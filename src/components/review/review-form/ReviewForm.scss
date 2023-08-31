@@ -1,3 +1,5 @@
+@import "../../../utils/mixin";
+
 .review-form-container {
   position: relative;
   width: 100%;
@@ -121,4 +123,16 @@
   justify-content: flex-start;
   align-items: center;
   gap: 12px;
+}
+
+@include tablet {
+  .review-form-banner {
+    .form-banner-box {
+      width: 700px;
+    }
+  }
+
+  .review-form {
+    width: 700px;
+  }
 }
