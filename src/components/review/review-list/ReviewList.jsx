@@ -1,5 +1,6 @@
 import "./ReviewList.scss";
 import ReviewItem from "./ReviewItem";
+import { Pagnation } from "../../ui";
 import { useQuery } from "react-query";
 import { getReviews } from "../../../api/review";
 
@@ -21,6 +22,7 @@ const ReviewList = () => {
       {data.map((item) => (
         <ReviewItem key={item.id} review={item} />
       ))}
+      <Pagnation totalPages={data.length} itemPerPages={6} />
     </ul>
   );
 };
