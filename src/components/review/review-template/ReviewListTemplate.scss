@@ -1,3 +1,5 @@
+@import "../../../utils/mixin";
+
 .review-list-template {
   width: 100%;
   height: auto;
@@ -5,5 +7,12 @@
   margin-bottom: 36px;
   box-sizing: border-box;
   display: flex;
+  flex-direction: row;
   gap: 36px;
+}
+
+@include tablet {
+  .review-list-template {
+    flex-direction: column;
+  }
 }
