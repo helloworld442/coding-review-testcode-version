@@ -141,6 +141,7 @@ const ReviewForm = () => {
               onInput={onChangeTitle}
               onKeyDown={onKeyDownTag}
               placeholder="제목을 입력하세요"
+              isEssential
             />
             <ReviewFormTextArea
               label="문제상황"
@@ -148,6 +149,7 @@ const ReviewForm = () => {
               error={errors.problem}
               onInput={onChangeProblem}
               placeholder="문제상황을 입력하세요"
+              isEssential
             />
             <ReviewFormTextArea
               label="궁금한 점"
@@ -155,6 +157,7 @@ const ReviewForm = () => {
               error={errors.question}
               onInput={onChangeQuestion}
               placeholder="궁금한 점을 입력하세요"
+              isEssential
             />
           </div>
         </div>

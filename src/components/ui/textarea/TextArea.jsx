@@ -1,9 +1,11 @@
 import "./TextArea.scss";
 
-const TextArea = ({ children, label }) => {
+const TextArea = ({ children, label, isEssential }) => {
   return (
     <div className="textarea">
-      <label className="textarea-label">{label}</label>
+      <label className="textarea-label">
+        {label} {isEssential && <span>*</span>}
+      </label>
       {children}
     </div>
   );
