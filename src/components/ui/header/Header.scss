@@ -1,3 +1,5 @@
+@import "../../../utils/mixin";
+
 .header {
   position: relative;
   width: 100%;
@@ -128,5 +130,37 @@
 @keyframes rotate_image {
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@include tablet {
+  .header-aside {
+    width: 700px;
+    height: 420px;
+  }
+
+  .header-aside-desc {
+    h2 {
+      font-size: 2.6rem;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .header-aside-plants {
+    width: 220px;
+    height: 220px;
+  }
+
+  #sun {
+    width: 150px;
+    height: 150px;
+  }
+
+  #moon {
+    width: 24px;
+    height: 24px;
   }
 }
