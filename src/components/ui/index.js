@@ -4,5 +4,7 @@ export * from "./footer/Footer";
 export * from "./button/Button";
 export * from "./input/ReviewFormInput";
 export * from "./textarea/ReviewFormTextArea";
+export * from "./input/ReviewDetailInput";
+export * from "./textarea/ReviewDetailTextArea";
 export * from "./tag/Tag";
 export * from "./pagnation/Pagnation";
