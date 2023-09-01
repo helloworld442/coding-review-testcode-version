@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { Button, ReviewDetailInput, ReviewDetailTextArea } from "../../ui";
+import { Button, ReviewDetailInput, ReviewDetailTextArea, Tag } from "../../ui";
 import "./ReviewDetail.scss";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../../../api/review";
@@ -36,6 +36,11 @@ const ReviewDetail = () => {
             <pre>{data.problem}</pre>
             <h4>궁금한 점</h4>
             <pre>{data.question}</pre>
+          </div>
+          <div className="question-content-tags">
+            {data.tags.map((tag, i) => (
+              <Tag key={i} title={tag} />
+            ))}
           </div>
         </div>
       </div>
