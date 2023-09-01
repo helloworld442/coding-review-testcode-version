@@ -7,7 +7,14 @@ import { postReviews } from "../../../api/review";
 
 const ReviewForm = () => {
   const queryClient = useQueryClient();
-  const [form, setForm] = useState({ tags: [], tag: "", title: "", problem: "", question: "" });
+  const [form, setForm] = useState({
+    tags: [],
+    code: "",
+    tag: "",
+    title: "",
+    problem: "",
+    question: "",
+  });
   const [errors, setErrors] = useState({ title: "", problem: "", question: "" });
   const reviewMutation = useMutation(postReviews, {
     onSuccess: () => {
@@ -102,10 +109,8 @@ const ReviewForm = () => {
 
     reviewMutation.mutate(form);
 
-    setForm({ tags: [], tag: "", title: "", problem: "", question: "" });
+    setForm({ tags: [], tag: "", title: "", problem: "", question: "", code: "" });
   };
-
-  console.log(form);
 
   if (reviewMutation.isLoading) return <div>loading....</div>;
 
@@ -165,14 +170,14 @@ const ReviewForm = () => {
               isEssential
             />
           </div>
-        </div>
-        <div className="review-form-buttons">
-          <Button size="medium" onClick={onClickCancelButton}>
-            취소
-          </Button>
-          <Button size="medium" primary type="submit">
-            등록
-          </Button>
+          <div className="review-form-buttons">
+            <Button size="medium" onClick={onClickCancelButton}>
+              취소
+            </Button>
+            <Button size="medium" primary type="submit">
+              등록
+            </Button>
+          </div>
         </div>
       </form>
     </div>

@@ -10,6 +10,8 @@ const ReviewDetail = () => {
     getReviewById(postId)
   );
 
+  console.log("[DEBUG] Review detail error : ", error);
+
   if (isLoading) return <div>loading....</div>;
 
   if (isError) return <div>error....</div>;
@@ -25,7 +27,7 @@ const ReviewDetail = () => {
           <h2 className="question-content-title">
             <span>1</span>코드 리뷰를 위한 코드 영역입니다.
           </h2>
-          <pre className="question-content-code"></pre>
+          <pre className="question-content-code" dangerouslySetInnerHTML={{ __html: data.code }} />
           <h2 className="question-content-title">
             <span>2</span>코드 리뷰를 위한 정보 영역입니다.
           </h2>

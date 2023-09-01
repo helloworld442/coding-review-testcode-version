@@ -13,9 +13,9 @@
   font-family: monospace;
   color: #eee;
   caret-color: red;
-  z-index: 99;
+  z-index: 0;
   white-space: pre-wrap;
-  overflow-y: scroll;
+  overflow-y: hidden;
   line-height: 1.5rem;
 }
 

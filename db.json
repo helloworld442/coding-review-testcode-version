@@ -35,42 +35,6 @@
       "question": "리엑트 정말 재밌다.\n리엑트 정말 재밌다.\n리엑트 정말 재밌다.\n리엑트 정말 재밌다.\n리엑트 정말 재밌다.\n",
       "code": "<span class=\"hg-function-keyword-code\">function</span> <span class = \"hg-word-code\">solution<span class = \"hg-word-parenthesis-code\"><span class = \"hg-parenthesis-code\">(</span><span class = \"hg-fc-parenthesis-code\">n</span><span class = \"hg-parenthesis-code\">)</span></span></span> <span class = \"hg-brace-code\">{</span>\n    <span class=\"hg-var-code\">let</span> answer = <span class=\"hg-num-code\">0</span>;\n    \n    <span class = \"hg-word-code\"><span class=\"hg-block-code\">while</span><span class = \"hg-word-parenthesis-code\"><span class = \"hg-parenthesis-code\">(</span>n <span data-testid = \"hg-code-last\" class=\"hg-hyper-code\">&gt;</span> <span class=\"hg-num-code\">0</span><span class = \"hg-parenthesis-code\">)</span></span></span> <span class = \"hg-brace-code\">{</span>\n        <span class = \"hg-word-code\"><span class=\"hg-conditional-code\">if</span><span class = \"hg-word-parenthesis-code\"><span class = \"hg-parenthesis-code\">(</span>n % <span class=\"hg-num-code\">2</span> === <span class=\"hg-num-code\">1</span><span class = \"hg-parenthesis-code\">)</span></span></span> <span class = \"hg-brace-code\">{</span>\n            n -= <span class=\"hg-num-code\">1</span>;\n            answer += <span class=\"hg-num-code\">1</span>\n        <span class = \"hg-brace-code\">}</span>\n        n /= <span class=\"hg-num-code\">2</span>;\n    <span class = \"hg-brace-code\">}</span>\n\n    <span class=\"hg-return-code\">return</span> answer;\n<span class = \"hg-brace-code\">}</span>",
       "id": 6
-    },
-    {
-      "tags": [],
-      "tag": "ㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ",
-      "title": "ㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ",
-      "problem": "ㅁㄴㅇㄹㅁㄴㅇㄹㄴㅁㅇㄹㅁㄴㄹ",
-      "question": "ㅁㄴㅇㄹㅁㄴㅇㄹㄴㅁㄹ",
-      "code": "",
-      "id": 7
-    },
-    {
-      "tags": [],
-      "tag": "asdfasdfasdfdasfsf",
-      "title": "asdfasdfasdfdasfsf",
-      "problem": "asdfasdfasdf",
-      "question": "asdfasdfadsfdsfad",
-      "code": "",
-      "id": 8
-    },
-    {
-      "tags": [],
-      "tag": "afsdfdasfdasfasdf",
-      "title": "afsdfdasfdasfasdf",
-      "problem": "asdfasdfasdfdfsadfsdaf",
-      "question": "asdfasdfsfadsfasfadsfadsfs",
-      "code": "",
-      "id": 9
-    },
-    {
-      "tags": [],
-      "tag": "sadfsadadsfadsf",
-      "title": "sadfsadadsfadsf",
-      "problem": "asdfsadfasdfasasf",
-      "question": "asdfasfasdfadsfasdffa",
-      "code": "",
-      "id": 10
     }
   ]
 }

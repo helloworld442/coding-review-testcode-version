@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./EditorForm.scss";
 
-const EditorForm = ({ name, onCode }) => {
+const EditorForm = ({ onCode }) => {
   const [value, setValue] = useState("");
   const textareaRef = useRef(null);
 
@@ -28,7 +28,7 @@ const EditorForm = ({ name, onCode }) => {
       .replace(/>/g, "&gt;")
       .replace(
         /(['"])(.*?)\1/g,
-        '<span data-testid = "hg-code-first"  class = "hg-marker-code">$1$2$1</span>'
+        '<span data-testid = "hg-code-first" class = "hg-marker-code">$1$2$1</span>'
       )
       .replace(
         /function\s+(\w+)\(([^)]+)\)/g,
@@ -47,7 +47,7 @@ const EditorForm = ({ name, onCode }) => {
       .replace(/\b(return)\b/g, '<span class="hg-return-code">$1</span>')
       .replace(/\b(null|undefined|false|true)\b/g, '<span class="hg-null-code">$1</span>')
       .replace(/\b(className)\b/g, '<span class="hg-classnames-code">$1</span>')
-      .replace(/\b(\d)\b/g, '<span class="hg-num-code">$1</span>')
+      .replace(/(\d)/g, '<span class="hg-num-code">$1</span>')
       .replace(/\/\/.*/g, '<span class="hg-comment-code">$&</span>')
       .replace(/\[([^\[\]=<>]*)\]/g, '<span class = "hg-bracket-var-code">[$1]</span>')
       .replace(/(\(|\))/g, '<span class = "hg-parenthesis-code">$1</span>')

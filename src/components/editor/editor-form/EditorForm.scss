@@ -12,9 +12,9 @@
   font-family: monospace;
   color: transparent;
   caret-color: red;
-  z-index: 100;
+  z-index: 1;
   line-height: 1.5rem;
   resize: none;
   white-space: pre-wrap;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
