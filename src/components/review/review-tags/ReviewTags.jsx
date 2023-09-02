@@ -1,7 +1,7 @@
 import { Tag } from "../../ui";
-import "./ReviewTag.scss";
+import "./ReviewTags.scss";
 
-const ReviewTag = () => {
+const ReviewTags = () => {
   return (
     <div className="review-tag">
       <h2 className="review-tag-title">인기 태그</h2>
@@ -26,4 +26,4 @@ const ReviewTag = () => {
   );
 };
 
-export { ReviewTag };
+export { ReviewTags };

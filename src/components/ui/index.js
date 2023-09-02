@@ -8,3 +8,4 @@ export * from "./input/ReviewDetailInput";
 export * from "./textarea/ReviewDetailTextArea";
 export * from "./tag/Tag";
 export * from "./pagnation/Pagnation";
+export * from "./modal/Modal";
