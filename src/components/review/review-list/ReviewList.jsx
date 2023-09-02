@@ -1,5 +1,6 @@
 import "./ReviewList.scss";
 import ReviewItem from "./ReviewItem";
+import { ReviewCategory } from "../review-category/ReviewCategory";
 import { Pagnation } from "../../ui";
 import { useQuery } from "react-query";
 import { getReviews } from "../../../api/review";
@@ -18,12 +19,15 @@ const ReviewList = () => {
   if (isError) return <div>errors...</div>;
 
   return (
-    <ul className="review-list">
-      {data.map((item) => (
-        <ReviewItem key={item.id} review={item} />
-      ))}
+    <div className="review-list-container">
+      <ReviewCategory />
+      <ul className="review-list">
+        {data.map((item) => (
+          <ReviewItem key={item.id} review={item} />
+        ))}
+      </ul>
       <Pagnation totalPages={data.length} itemPerPages={6} />
-    </ul>
+    </div>
   );
 };
 

@@ -1,15 +1,21 @@
 @import "../../../utils/mixin";
 
-.review-list {
+.review-list-container {
   position: relative;
   flex: 5;
-  min-height: 700px;
+  height: auto;
   padding: 24px;
-  padding-bottom: 72px;
   box-sizing: border-box;
   border: 2px solid #bbb;
   border-radius: 4px;
   background: #fff;
+}
+
+.review-list {
+  width: 100%;
+  min-height: 700px;
+  padding-bottom: 48px;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
