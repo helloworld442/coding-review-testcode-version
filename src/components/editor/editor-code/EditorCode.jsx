@@ -1,12 +1,10 @@
 import React from "react";
 import "./EditorCode.scss";
+import Highlight from "react-highlight";
+import "highlight.js/styles/atom-one-dark-reasonable.css";
 
 const EditorCode = ({ code }) => {
-  return (
-    <pre className="editor-code">
-      <code dangerouslySetInnerHTML={{ __html: code }}></code>
-    </pre>
-  );
+  return <Highlight className="editor-code javascript">{code}</Highlight>;
 };
 
 export { EditorCode };

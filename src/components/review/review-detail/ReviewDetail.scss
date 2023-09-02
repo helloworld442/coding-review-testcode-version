@@ -77,20 +77,21 @@
 }
 
 .question-content-code {
-  width: 100%;
+  width: 900px;
   height: 500px;
-  padding: 0.5rem;
+  padding: 1rem;
+  margin: 0 auto;
   margin-bottom: 24px;
   box-sizing: border-box;
   border: none;
   outline: none;
-  background: #333;
+  background: rgb(41, 44, 51);
   font-size: 1rem;
   font-weight: 400;
   font-family: monospace;
   color: #eee;
   caret-color: red;
-  z-index: 99;
+  z-index: 0;
   white-space: pre-wrap;
   overflow-y: scroll;
   line-height: 1.5rem;

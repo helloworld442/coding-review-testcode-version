@@ -1,8 +1,10 @@
-import { useQuery } from "react-query";
-import { Button, ReviewDetailInput, ReviewDetailTextArea, Tag } from "../../ui";
 import "./ReviewDetail.scss";
+import { Button, ReviewDetailInput, ReviewDetailTextArea, Tag } from "../../ui";
+import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../../../api/review";
+import Highlight from "react-highlight";
+import "highlight.js/styles/atom-one-dark-reasonable.css";
 
 const ReviewDetail = () => {
   const { postId } = useParams();
@@ -27,7 +29,7 @@ const ReviewDetail = () => {
           <h2 className="question-content-title">
             <span>1</span>코드 리뷰를 위한 코드 영역입니다.
           </h2>
-          <pre className="question-content-code" dangerouslySetInnerHTML={{ __html: data.code }} />
+          <Highlight className="question-content-code javascript">{data.code}</Highlight>
           <h2 className="question-content-title">
             <span>2</span>코드 리뷰를 위한 정보 영역입니다.
           </h2>
