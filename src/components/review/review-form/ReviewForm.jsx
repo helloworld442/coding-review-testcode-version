@@ -2,10 +2,12 @@ import "./ReviewForm.scss";
 import { ReviewFormInput, ReviewFormTextArea, Button } from "../../ui";
 import { EditorCode, EditorForm, EditorTemplate } from "../../editor";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "react-query";
 import { postReviews } from "../../../api/review";
 
 const ReviewForm = () => {
+  const navigateTo = useNavigate();
   const queryClient = useQueryClient();
   const [form, setForm] = useState({
     tags: [],
@@ -19,8 +21,7 @@ const ReviewForm = () => {
   const reviewMutation = useMutation(postReviews, {
     onSuccess: () => {
       queryClient.invalidateQueries("reviews");
-      window.location.reload();
-      window.location.href = "/";
+      navigateTo("/");
     },
     onError: (err) => {
       console.log("[DEBUG] review form error: " + err);
@@ -49,8 +50,7 @@ const ReviewForm = () => {
 
     setForm({ tags: [], tag: "", title: "", problem: "", question: "" });
 
-    window.location.reload();
-    window.location.href = "/";
+    navigateTo("/");
   };
 
   const onKeyDownTag = (e) => {

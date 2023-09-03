@@ -2,7 +2,7 @@ import "./ReviewItem.scss";
 import { Tag } from "../../ui";
 import { ReactComponent as ArrowRight } from "../../../assets/arrow-right-solid.svg";
 
-const ReviewItem = ({ review, listView }) => {
+const ReviewItem = ({ review }) => {
   return (
     <li className="review-item">
       <h2 className="review-item-title">
@@ -18,13 +18,6 @@ const ReviewItem = ({ review, listView }) => {
           <Tag key={i} title={tag} />
         ))}
       </div>
-
-      {listView === "list" && (
-        <div className="review-item-views">
-          <span className="item-views">2</span>
-          <h4 className="item-name">조회수</h4>
-        </div>
-      )}
     </li>
   );
 };
