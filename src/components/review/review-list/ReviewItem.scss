@@ -1,4 +1,5 @@
 .review-item {
+  position: relative;
   padding: 12px;
   box-sizing: border-box;
   border: 2px solid #bbb;
@@ -62,4 +63,36 @@
 .review-item-tags {
   display: flex;
   gap: 12px;
+}
+
+.review-item-views {
+  position: absolute;
+  right: 36px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(-50%);
+
+  .item-views {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border: 8px solid rgb(64, 58, 107, 0.8);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    background: #fff;
+  }
+
+  .item-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
 }

@@ -20,6 +20,38 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 24px;
+  transition: all 0.8s ease-in-out;
+
+  &.list {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-gap: 24px;
+  }
+}
+
+.review-list-view {
+  padding-bottom: 36px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 8px;
+    fill: rgb(64, 58, 107, 0.5);
+    cursor: pointer;
+
+    &.active {
+      fill: #333;
+    }
+
+    &:nth-child(1) {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
 }
 
 @include tablet {

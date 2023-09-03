@@ -1,5 +1,6 @@
 import "./ReviewDetail.scss";
 import { Button, ReviewDetailInput, ReviewDetailTextArea, Tag } from "../../ui";
+import { ReactComponent as Heart } from "../../../assets/heart-solid.svg";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../../../api/review";
@@ -26,6 +27,11 @@ const ReviewDetail = () => {
           {data.title}
         </h1>
         <div className="detail-question-content">
+          <div className="question-content-profile">
+            <span></span>
+            <h2>김민승</h2>
+            <h2>2022.08.02</h2>
+          </div>
           <h2 className="question-content-title">
             <span>1</span>코드 리뷰를 위한 코드 영역입니다.
           </h2>
@@ -63,6 +69,10 @@ const ReviewDetail = () => {
             </div>
           </form>
         </div>
+      </div>
+      <div className="review-detail-likes">
+        <Heart />
+        <h4>0</h4>
       </div>
     </div>
   );

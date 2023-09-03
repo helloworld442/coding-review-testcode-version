@@ -21,6 +21,41 @@
   box-sizing: border-box;
 }
 
+.review-detail-likes {
+  position: fixed;
+  top: 70%;
+  right: 10%;
+  width: 70px;
+  height: 100px;
+  padding: 12px 0;
+  box-sizing: border-box;
+  box-shadow: 12px 12px 40px #dbdbdb, -12px -12px 40px #ffffff;
+  border: 2px solid #e8e8e8;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    fill: #bbb;
+
+    &:hover {
+      fill: rgb(64, 58, 107, 0.8);
+    }
+  }
+
+  h4 {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: rgb(64, 58, 107, 0.8);
+  }
+}
+
 .detail-question-title,
 .detail-answer-title {
   width: 900px;
@@ -45,6 +80,35 @@
 .detail-answer-content {
   width: 900px;
   margin: 24px auto;
+}
+
+.question-content-profile {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 72px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+
+  span {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border: 5px solid #eee;
+    border-radius: 100%;
+    background: rgb(64, 58, 107, 1);
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+
+    &:nth-child(3) {
+      color: #888;
+    }
+  }
 }
 
 .question-content-title {
@@ -105,13 +169,13 @@
   gap: 20px;
 
   h4 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: rgb(64, 58, 107, 0.8);
   }
 
   pre {
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     font-weight: bold;
     font-family: "Jua", sans-serif;
     color: #333;
