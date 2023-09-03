@@ -14,7 +14,7 @@ const ReviewItem = ({ review }) => {
         이렇게 해보시는 것은 어떨까요?
       </h3>
       <div className="review-item-tags">
-        {review.tags.map((tag, i) => (
+        {review.tags?.map((tag, i) => (
           <Tag key={i} title={tag} />
         ))}
       </div>

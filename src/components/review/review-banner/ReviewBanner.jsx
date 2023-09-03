@@ -23,7 +23,7 @@ const ReviewBanner = () => {
               <a href={"/detail/" + item.id}>{item.title}</a>
             </h3>
             <div className="banner-item-tags">
-              {item.tags.map((tag, i) => (
+              {item.tags?.map((tag, i) => (
                 <Tag key={i} title={tag} />
               ))}
             </div>

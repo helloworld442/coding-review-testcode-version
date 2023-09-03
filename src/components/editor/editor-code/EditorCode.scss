@@ -1,10 +1,8 @@
-.editor-code {
+.editor-code-container {
   position: absolute;
-  margin: 0;
+  right: 0;
   width: 100%;
   min-height: 100%;
-  padding: 1rem;
-  box-sizing: border-box;
   border: none;
   outline: none;
   background: rgb(41, 44, 51);
@@ -14,6 +12,38 @@
   color: #eee;
   caret-color: red;
   z-index: 0;
+}
+
+.editor-code-number {
+  position: absolute;
+  left: 0;
+  width: 5%;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "monospace";
+  color: #888;
+  background: rgb(41, 44, 51);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  white-space: pre-wrap;
+  overflow-y: hidden;
+  line-height: 1.5rem;
+}
+
+.editor-code {
+  position: absolute;
+  right: 0;
+  width: 95%;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: monospace;
+  color: #eee;
+  caret-color: red;
   white-space: pre-wrap;
   overflow-y: hidden;
   line-height: 1.5rem;

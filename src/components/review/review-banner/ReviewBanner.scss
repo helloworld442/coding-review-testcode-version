@@ -100,7 +100,9 @@
 }
 
 .banner-item-info {
-  display: block;
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
   display: flex;
   justify-content: flex-end;
   gap: 12px;
