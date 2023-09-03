@@ -1,6 +1,8 @@
 import "./ReviewForm.scss";
 import { ReviewFormInput, ReviewFormTextArea, Button } from "../../ui";
-import { EditorCode, EditorForm, EditorTemplate } from "../../editor";
+import { EditorTemplate } from "../editor-template/EditorTemplate";
+import { EditorForm } from "../editor-form/EditorForm";
+import { EditorCode } from "../editor-code/EditorCode";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "react-query";

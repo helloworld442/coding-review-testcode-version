@@ -1,6 +1,7 @@
 export * from "./layout/Layout";
 export * from "./header/Header";
 export * from "./footer/Footer";
+export * from "./main/Main";
 export * from "./button/Button";
 export * from "./input/ReviewFormInput";
 export * from "./textarea/ReviewFormTextArea";

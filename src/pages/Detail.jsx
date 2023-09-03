@@ -1,13 +1,13 @@
-import { ReviewDetail, ReviewTemplate } from "../components/review";
-import { Footer, Header, Layout } from "../components/ui";
+import { ReviewDetail } from "../components/detail";
+import { Footer, Header, Layout, Main } from "../components/ui";
 
 const Detail = () => {
   return (
     <Layout>
       <Header isBackground="false" />
-      <ReviewTemplate>
+      <Main>
         <ReviewDetail />
-      </ReviewTemplate>
+      </Main>
       <Footer />
     </Layout>
   );

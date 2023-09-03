@@ -1,6 +1,6 @@
-import "./ReviewCenter.scss";
-import { ReviewList } from "../review-list/ReviewList";
 import { ReviewRank } from "../review-rank/ReviewRank";
+import { ReviewList } from "../review-list/ReviewList";
+import "./ReviewCenter.scss";
 
 const ReviewCenter = () => {
   return (

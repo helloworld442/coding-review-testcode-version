@@ -1,11 +1,5 @@
 @import "../../../utils/mixin";
 
-.review-detail {
-  width: 100%;
-  height: auto;
-  margin-top: 80px;
-}
-
 .review-detail-question {
   width: 100%;
   height: auto;
@@ -14,50 +8,7 @@
   background: #fff;
 }
 
-.review-detail-answer {
-  width: 100%;
-  height: auto;
-  padding: 24px 0;
-  box-sizing: border-box;
-}
-
-.review-detail-likes {
-  position: fixed;
-  top: 70%;
-  right: 10%;
-  width: 70px;
-  height: 100px;
-  padding: 12px 0;
-  box-sizing: border-box;
-  box-shadow: 12px 12px 40px #dbdbdb;
-  border: 2px solid #e8e8e8;
-  border-radius: 12px;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
-
-  svg {
-    width: 2.4rem;
-    height: 2.4rem;
-    fill: #bbb;
-
-    &:hover {
-      fill: rgb(64, 58, 107, 0.8);
-    }
-  }
-
-  h4 {
-    font-size: 1.15rem;
-    font-weight: bold;
-    color: rgb(64, 58, 107, 0.8);
-  }
-}
-
-.detail-question-title,
-.detail-answer-title {
+.detail-question-title {
   width: 900px;
   margin: 0 auto;
   border-bottom: 3px solid #e8e8e8;
@@ -76,8 +27,7 @@
   }
 }
 
-.detail-question-content,
-.detail-answer-content {
+.detail-question-content {
   width: 900px;
   margin: 24px auto;
 }
@@ -217,26 +167,12 @@
   gap: 12px;
 }
 
-.answer-content-form {
-  margin-top: 24px;
-}
-
-.answer-content-form-button {
-  margin-top: 36px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 12px;
-}
-
 @include tablet {
-  .detail-question-title,
-  .detail-answer-title {
+  .detail-question-title {
     width: 700px;
   }
 
-  .detail-question-content,
-  .detail-answer-content {
+  .detail-question-content {
     width: 700px;
   }
 }
