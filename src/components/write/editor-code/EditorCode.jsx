@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./EditorCode.scss";
-import Highlight from "react-highlight";
+import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 
 const EditorCode = ({ code }) => {
-  const codeNumber = [...code.split("\n"), ""];
+  useEffect(() => {
+    hljs.highlightAll();
+  }, [code]);
 
   return (
     <div className="editor-code-container">
       <ul className="editor-code-number">
-        {codeNumber?.map((_, i) => (
+        {code.split("\n")?.map((_, i) => (
           <li key={i}>{i + 1}</li>
         ))}
       </ul>
-      <Highlight className="editor-code javascript">{code}</Highlight>
+      <pre className="editor-code javascript">
+        <code>{code}</code>
+      </pre>
     </div>
   );
 };

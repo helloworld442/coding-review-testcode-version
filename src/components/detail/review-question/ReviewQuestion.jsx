@@ -1,9 +1,33 @@
 import "./ReviewQuestion.scss";
 import { Tag } from "../../ui";
-import Highlight from "react-highlight";
+import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark-reasonable.css";
+import { useEffect } from "react";
 
 const ReviewQuestion = ({ data }) => {
+  const onDbClickCode = (e) => {
+    const selectedText = window.getSelection().toString();
+    const codeRegex = new RegExp(`\\b${selectedText}\\b`, "g");
+
+    // 이전에 하이라이팅된 요소들을 찾아 제거
+    const codeBlocks = document.querySelectorAll(".highlight");
+    codeBlocks.forEach((block) => {
+      block.outerHTML = block.innerHTML;
+    });
+
+    // 새로운 하이라이팅을 추가
+    const newCode = e.target.innerHTML.replace(
+      codeRegex,
+      `<span class="highlight">${selectedText}</span>`
+    );
+
+    e.target.innerHTML = newCode;
+  };
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
+
   return (
     <div className="review-detail-question">
       <h1 className="detail-question-title">
@@ -25,7 +49,9 @@ const ReviewQuestion = ({ data }) => {
               <li key={i}> {i + 1}</li>
             ))}
           </ul>
-          <Highlight className="question-content-code javascript">{data.code}</Highlight>
+          <pre className="question-content-code javascript">
+            <code onDoubleClick={onDbClickCode}>{data.code}</code>
+          </pre>
         </div>
         <h2 className="question-content-title">
           <span>2</span>코드 리뷰를 위한 정보 영역입니다.
