@@ -18,6 +18,8 @@ const ReviewForm = () => {
     title: "",
     problem: "",
     question: "",
+    hgTags: [],
+    hgTag: "",
   });
   const [errors, setErrors] = useState({ title: "", problem: "", question: "" });
   const reviewMutation = useMutation(postReviews, {
@@ -50,9 +52,16 @@ const ReviewForm = () => {
   const onClickCancelButton = (e) => {
     e.preventDefault();
 
-    setForm({ tags: [], tag: "", title: "", problem: "", question: "" });
-
-    navigateTo("/");
+    setForm({
+      tags: [],
+      code: "",
+      tag: "",
+      title: "",
+      problem: "",
+      question: "",
+      hgTags: [],
+      hgTag: "",
+    });
   };
 
   const onKeyDownTag = (e) => {
@@ -93,6 +102,18 @@ const ReviewForm = () => {
     setForm((prev) => ({ ...prev, code: value }));
   };
 
+  const onChangeHgTag = (e) => {
+    setForm((prev) => ({ ...prev, hgTag: e.target.value }));
+  };
+
+  const onSubmitHgTag = (e, name) => {
+    e.preventDefault();
+    const hgTagFormat = { name, value: form.hgTag };
+
+    setForm((prev) => ({ ...prev, hgTags: form.hgTags.concat(hgTagFormat) }));
+    setForm((prev) => ({ ...prev, hgTag: "" }));
+  };
+
   const onSubmitReview = (e) => {
     e.preventDefault();
 
@@ -113,6 +134,8 @@ const ReviewForm = () => {
 
     setForm({ tags: [], tag: "", title: "", problem: "", question: "", code: "" });
   };
+
+  console.log(form.hgTags);
 
   if (reviewMutation.isLoading) return <div>loading....</div>;
 
@@ -136,7 +159,13 @@ const ReviewForm = () => {
           <div className="review-code-form-content">
             <EditorTemplate>
               <EditorForm onCode={onChangeCode} />
-              <EditorCode code={form.code} />
+              <EditorCode
+                code={form.code}
+                hgTag={form.hgTag}
+                hgTags={form.hgTags}
+                onChange={onChangeHgTag}
+                onSubmit={onSubmitHgTag}
+              />
             </EditorTemplate>
           </div>
         </div>

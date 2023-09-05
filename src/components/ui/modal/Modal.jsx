@@ -1,26 +1,40 @@
 import "./Modal.scss";
-import { Button } from "../button/Button";
+import { createContext, useContext, useState } from "react";
 
-const Modal = ({ content, tutalrialIndex, onClickPrevTutalrial, onClickNextTutalrial }) => {
+const ModalContext = createContext(null);
+
+const ModalContainer = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onOpenModal = () => setIsOpen(true);
+
+  const onCloseModal = () => setIsOpen(false);
+
   return (
-    <>
-      <div className="modal-overlay"></div>
-      <div className="modal-content">
-        <h2 className="modal-content-title">
-          <span>{tutalrialIndex + 1}</span>
-          {content}
-        </h2>
-        <div className="modal-content-buttons">
-          <Button size="small" onClick={onClickPrevTutalrial}>
-            이전
-          </Button>
-          <Button size="small" primary onClick={onClickNextTutalrial}>
-            다음
-          </Button>
-        </div>
-      </div>
-    </>
+    <ModalContext.Provider value={{ isOpen, onOpenModal, onCloseModal }}>
+      {children}
+    </ModalContext.Provider>
   );
 };
 
-export { Modal };
+const ModalTrigger = ({ trigger }) => {
+  const { onOpenModal } = useContext(ModalContext);
+
+  return (
+    <span className="hightlight" onClick={onOpenModal}>
+      {trigger}
+    </span>
+  );
+};
+
+const ModalContent = () => {
+  const { isOpen, onCloseModal } = useContext(ModalContext);
+
+  return isOpen && <div onClick={onCloseModal}>asdf</div>;
+};
+
+const Container = ModalContainer;
+const Trigger = ModalTrigger;
+const Content = ModalContent;
+
+export { Container, Trigger, Content };

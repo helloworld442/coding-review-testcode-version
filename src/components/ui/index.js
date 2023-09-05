@@ -7,6 +7,6 @@ export * from "./input/ReviewFormInput";
 export * from "./textarea/ReviewFormTextArea";
 export * from "./input/ReviewDetailInput";
 export * from "./textarea/ReviewDetailTextArea";
+export * from "./modal/ReviewHgModal";
 export * from "./tag/Tag";
 export * from "./pagnation/Pagnation";
-export * from "./modal/Modal";
