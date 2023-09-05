@@ -52,15 +52,6 @@
   line-height: 1.5rem;
 }
 
-.editor-hg-tags {
-  position: absolute;
-  padding: 1rem;
-  padding-left: calc(1rem + 5%);
-  padding-right: 0;
-  box-sizing: border-box;
-  z-index: 1;
-}
-
 .editor-modal {
   width: 230px;
   padding: 8px;
@@ -99,4 +90,14 @@
     display: inline-block;
     cursor: pointer;
   }
+}
+
+.highlight {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-decoration: underline;
+  color: #333;
+  background: yellow;
 }

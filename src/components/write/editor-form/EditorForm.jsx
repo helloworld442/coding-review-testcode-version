@@ -3,6 +3,7 @@ import "./EditorForm.scss";
 
 const EditorForm = ({ onCode }) => {
   const [value, setValue] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
   const textareaRef = useRef(null);
 
   const onChangeValue = (e) => {
@@ -33,16 +34,15 @@ const EditorForm = ({ onCode }) => {
   }, [value]);
 
   return (
-    <textarea
-      ref={textareaRef}
-      data-testid="editor-form"
-      className="editor-form"
-      value={value}
-      onChange={onChangeValue}
-      onKeyDown={onKeyDownValue}
-      autoComplete="false"
-      spellCheck="false"
-    ></textarea>
+    <div className="editor-form">
+      <textarea
+        ref={textareaRef}
+        value={value}
+        onChange={onChangeValue}
+        onKeyDown={onKeyDownValue}
+        spellCheck="false"
+      ></textarea>
+    </div>
   );
 };
 

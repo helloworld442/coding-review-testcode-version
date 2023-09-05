@@ -18,8 +18,8 @@ const ReviewForm = () => {
     title: "",
     problem: "",
     question: "",
-    hgTags: [],
-    hgTag: "",
+    hashs: [],
+    hash: "",
   });
   const [errors, setErrors] = useState({ title: "", problem: "", question: "" });
   const reviewMutation = useMutation(postReviews, {
@@ -59,8 +59,8 @@ const ReviewForm = () => {
       title: "",
       problem: "",
       question: "",
-      hgTags: [],
-      hgTag: "",
+      hashs: [],
+      hash: "",
     });
   };
 
@@ -102,16 +102,17 @@ const ReviewForm = () => {
     setForm((prev) => ({ ...prev, code: value }));
   };
 
-  const onChangeHgTag = (e) => {
-    setForm((prev) => ({ ...prev, hgTag: e.target.value }));
+  const onMouseUpHash = (e) => {
+    const selectedText = window.getSelection().toString();
+    if (selectedText) {
+      setForm((prev) => ({ ...prev, hash: selectedText }));
+    }
   };
 
-  const onSubmitHgTag = (e, name) => {
-    e.preventDefault();
-    const hgTagFormat = { name, value: form.hgTag };
-
-    setForm((prev) => ({ ...prev, hgTags: form.hgTags.concat(hgTagFormat) }));
-    setForm((prev) => ({ ...prev, hgTag: "" }));
+  const onSubmitHash = (value) => {
+    const hashs = { name: form.hash, value };
+    setForm((prev) => ({ ...prev, hashs: form.hashs.concat(hashs) }));
+    setForm((prev) => ({ ...prev, hash: "" }));
   };
 
   const onSubmitReview = (e) => {
@@ -134,8 +135,6 @@ const ReviewForm = () => {
 
     setForm({ tags: [], tag: "", title: "", problem: "", question: "", code: "" });
   };
-
-  console.log(form.hgTags);
 
   if (reviewMutation.isLoading) return <div>loading....</div>;
 
@@ -161,10 +160,10 @@ const ReviewForm = () => {
               <EditorForm onCode={onChangeCode} />
               <EditorCode
                 code={form.code}
-                hgTag={form.hgTag}
-                hgTags={form.hgTags}
-                onChange={onChangeHgTag}
-                onSubmit={onSubmitHgTag}
+                hash={form.hash}
+                hashs={form.hashs}
+                onMouseUpHash={onMouseUpHash}
+                onSubmitHash={onSubmitHash}
               />
             </EditorTemplate>
           </div>
