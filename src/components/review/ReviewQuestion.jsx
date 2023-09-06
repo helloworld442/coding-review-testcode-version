@@ -2,11 +2,39 @@ import { styled } from "styled-components";
 import { Tag } from "../ui";
 import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark-reasonable.css";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const ReviewQuestion = ({ data }) => {
+  const codeRef = useRef(null);
+
+  const onMouseUpCode = (e) => {
+    const selectedText = window.getSelection().toString().trim();
+
+    if (selectedText) {
+      const highlightElements = codeRef.current.querySelectorAll(".highlight");
+
+      highlightElements.forEach((element) => {
+        element.outerHTML = element.innerHTML;
+      });
+
+      const codeRegex = new RegExp(selectedText, "g");
+      const highlightedText = `<span class="highlight">${selectedText}</span>`;
+      const currentHTML = codeRef.current.innerHTML;
+
+      codeRef.current.innerHTML = currentHTML.replace(codeRegex, highlightedText);
+    }
+  };
+
   useEffect(() => {
     hljs.highlightAll();
+  }, []);
+
+  useEffect(() => {
+    codeRef.current.addEventListener("mouseup", onMouseUpCode);
+
+    return () => {
+      codeRef.current.removeEventListener("mouseup", onMouseUpCode);
+    };
   }, []);
 
   return (
@@ -34,7 +62,7 @@ const ReviewQuestion = ({ data }) => {
             ))}
           </ul>
           <pre className="question-content-code javascript">
-            <code>{data.code}</code>
+            <code ref={codeRef}>{data.code}</code>
           </pre>
         </ReviewQuestionCode>
 
