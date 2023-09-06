@@ -1,13 +1,13 @@
-import { ReviewForm } from "../components/write";
-import { Footer, Header, Layout, Main } from "../components/ui";
+import { ReviewForm, ReviewTemplate } from "../components/review";
+import { Footer, Header, Layout } from "../components/ui";
 
 const Write = () => {
   return (
     <Layout>
-      <Header isBackground="false" />
-      <Main>
+      <Header />
+      <ReviewTemplate>
         <ReviewForm />
-      </Main>
+      </ReviewTemplate>
       <Footer />
     </Layout>
   );

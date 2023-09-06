@@ -1,14 +1,14 @@
-import { ReviewBanner, ReviewCenter } from "../components/home";
-import { Footer, Header, Layout, Main } from "../components/ui";
+import { ReviewBanner, ReviewCenter, ReviewTemplate } from "../components/review";
+import { Footer, Header, Layout } from "../components/ui";
 
 const Home = () => {
   return (
     <Layout>
-      <Header isBackground="true" />
-      <Main>
+      <Header isBackground />
+      <ReviewTemplate>
         <ReviewBanner />
         <ReviewCenter />
-      </Main>
+      </ReviewTemplate>
       <Footer />
     </Layout>
   );
