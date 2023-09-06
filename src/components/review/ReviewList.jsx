@@ -4,6 +4,7 @@ import { ReviewCategory } from "./ReviewCategory";
 import { ReviewSearch } from "./ReviewSearch";
 import { useQuery } from "react-query";
 import { getReviews } from "../../api/review";
+import { device } from "../../utils/_media";
 
 const ReviewList = () => {
   const { isLoading, isError, data, error } = useQuery("reviews", getReviews, {
@@ -53,6 +54,11 @@ const StReviewList = styled.ul`
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 24px;
   transition: all 0.8s ease-in-out;
+
+  @media ${device.tablet} {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+  }
 `;
 
 export { ReviewList };

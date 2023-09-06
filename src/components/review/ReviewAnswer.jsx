@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { Button, Input, TextArea } from "../ui";
+import { device } from "../../utils/_media";
 
 const ReviewAnswer = ({ data }) => {
   return (
@@ -59,6 +60,10 @@ const StReviewAnswerTitle = styled.h1`
     font-weight: 400;
     color: rgb(64, 58, 107, 0.8);
   }
+
+  @media ${device.tablet} {
+    width: 700px;
+  }
 `;
 
 const StReviewAnswerContent = styled.div`
@@ -75,6 +80,10 @@ const StReviewAnswerContent = styled.div`
       align-items: center;
       gap: 12px;
     }
+  }
+
+  @media ${device.tablet} {
+    width: 700px;
   }
 `;
 

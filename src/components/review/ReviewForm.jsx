@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { device } from "../../utils/_media";
 import { Button, Input, TextArea } from "../ui";
 import { EditorCode, EditorForm, EditorTemplate } from "../editor";
 import { useNavigate } from "react-router-dom";
@@ -255,6 +256,10 @@ const StReviewForm = styled.form`
   box-sizing: border-box;
   display: flex;
   gap: 36px;
+
+  @media ${device.tablet} {
+    flex-direction: column;
+  }
 `;
 
 const StReviewFormTitle = styled.h2`

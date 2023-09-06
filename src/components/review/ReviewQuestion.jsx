@@ -3,6 +3,7 @@ import { Tag } from "../ui";
 import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 import { useEffect, useRef } from "react";
+import { device } from "../../utils/_media";
 
 const ReviewQuestion = ({ data }) => {
   const codeRef = useRef(null);
@@ -141,11 +142,19 @@ const StReviewQuestionTitle = styled.h1`
     font-weight: 400;
     color: rgb(64, 58, 107, 0.8);
   }
+
+  @media ${device.tablet} {
+    width: 700px;
+  }
 `;
 
 const StReviewQuestionContent = styled.div`
   width: 900px;
   margin: 24px auto;
+
+  @media ${device.tablet} {
+    width: 700px;
+  }
 `;
 
 const ReviewQuestionProfile = styled.div`

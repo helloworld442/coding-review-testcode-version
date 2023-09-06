@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { css, keyframes, styled } from "styled-components";
+import { device } from "../../utils/_media";
 
 const Header = ({ isBackground }) => {
   const [scrollY, setScrollY] = useState(0);
@@ -182,6 +183,36 @@ const StHeaderArticle = styled.article`
       height: 36px;
       border-radius: 100%;
       background: #777;
+    }
+  }
+
+  @media ${device.tablet} {
+    width: 700px;
+    height: 420px;
+
+    .header-aside-desc {
+      h2 {
+        font-size: 2.2rem;
+      }
+
+      h4 {
+        font-size: 1.4rem;
+      }
+    }
+
+    .header-aside-plants {
+      width: 250px;
+      height: 250px;
+
+      #sun {
+        width: 150px;
+        height: 150px;
+      }
+
+      #moon {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 `;

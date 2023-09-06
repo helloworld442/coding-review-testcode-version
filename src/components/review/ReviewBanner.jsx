@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { getReviews } from "../../api/review";
 import { useQuery } from "react-query";
 import { Tag } from "../ui";
+import { device } from "../../utils/_media";
 
 const ReviewBanner = () => {
   const { isLoading, isError, data, error } = useQuery("reviews", getReviews);
@@ -76,6 +77,10 @@ const StReviewBannerMenu = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 36px;
+
+  @media ${device.tablet} {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const StReviewBannerItem = styled.li`
@@ -164,6 +169,16 @@ const StReviewBannerItem = styled.li`
 
     span {
       color: rgb(64, 58, 107, 0.8);
+    }
+  }
+
+  @media ${device.tablet} {
+    &:nth-child(3) {
+      display: none;
+    }
+
+    .banner-item-title {
+      width: 250px;
     }
   }
 `;
