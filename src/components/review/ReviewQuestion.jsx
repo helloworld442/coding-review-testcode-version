@@ -8,21 +8,48 @@ const ReviewQuestion = ({ data }) => {
   const codeRef = useRef(null);
 
   const onMouseUpCode = (e) => {
-    const selectedText = window.getSelection().toString().trim();
+    const selectedText = window.getSelection().toString();
 
     if (selectedText) {
-      const highlightElements = codeRef.current.querySelectorAll(".highlight");
+      const codeElements = document.querySelectorAll("code");
 
-      highlightElements.forEach((element) => {
-        element.outerHTML = element.innerHTML;
+      codeElements.forEach((codeElement) => {
+        const textNodes = findTextNodes(codeElement, selectedText);
+
+        textNodes.forEach((textNode) => {
+          const range = document.createRange();
+          range.setStart(textNode, textNode.textContent.indexOf(selectedText));
+          range.setEnd(textNode, range.startOffset + selectedText.length);
+
+          const span = document.createElement("span");
+          span.className = "highlight";
+          range.surroundContents(span);
+        });
       });
-
-      const codeRegex = new RegExp(selectedText, "g");
-      const highlightedText = `<span class="highlight">${selectedText}</span>`;
-      const currentHTML = codeRef.current.innerHTML;
-
-      codeRef.current.innerHTML = currentHTML.replace(codeRegex, highlightedText);
     }
+  };
+
+  const findTextNodes = (element, searchText) => {
+    const textNodes = [];
+    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+
+      if (node.textContent.includes(searchText)) {
+        textNodes.push(node);
+      }
+    }
+
+    return textNodes;
+  };
+
+  const onMouseDownCode = (e) => {
+    const highlightElements = codeRef.current.querySelectorAll(".highlight");
+
+    highlightElements.forEach((element) => {
+      element.outerHTML = element.innerHTML;
+    });
   };
 
   useEffect(() => {
@@ -31,9 +58,11 @@ const ReviewQuestion = ({ data }) => {
 
   useEffect(() => {
     codeRef.current.addEventListener("mouseup", onMouseUpCode);
+    codeRef.current.addEventListener("mousedown", onMouseDownCode);
 
     return () => {
       codeRef.current.removeEventListener("mouseup", onMouseUpCode);
+      codeRef.current.removeEventListener("mousedown", onMouseDownCode);
     };
   }, []);
 
