@@ -29,6 +29,14 @@ const ReviewQuestion = ({ data }) => {
     }
   };
 
+  const onMouseDownCode = (e) => {
+    const highlightElements = codeRef.current.querySelectorAll(".highlight");
+
+    highlightElements.forEach((element) => {
+      element.outerHTML = element.innerHTML;
+    });
+  };
+
   const findTextNodes = (element, searchText) => {
     const textNodes = [];
     const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
@@ -42,14 +50,6 @@ const ReviewQuestion = ({ data }) => {
     }
 
     return textNodes;
-  };
-
-  const onMouseDownCode = (e) => {
-    const highlightElements = codeRef.current.querySelectorAll(".highlight");
-
-    highlightElements.forEach((element) => {
-      element.outerHTML = element.innerHTML;
-    });
   };
 
   useEffect(() => {
