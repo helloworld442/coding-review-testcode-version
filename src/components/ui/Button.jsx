@@ -40,7 +40,7 @@ const StButton = styled.button`
   ${(props) =>
     props.size === "small" &&
     css`
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       width: 90px;
       height: 56px;
     `};
