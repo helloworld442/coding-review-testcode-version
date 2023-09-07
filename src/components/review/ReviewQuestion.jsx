@@ -9,7 +9,7 @@ const ReviewQuestion = ({ data }) => {
   const codeRef = useRef(null);
 
   const onMouseUpCode = (e) => {
-    const selectedText = window.getSelection().toString();
+    const selectedText = window.getSelection().toString().trim();
 
     if (selectedText) {
       const codeElements = document.querySelectorAll("code");
