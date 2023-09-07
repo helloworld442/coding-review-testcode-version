@@ -18,7 +18,7 @@ const ReviewBanner = () => {
       <StReviewBannerTitle>최신에 들어온 글이에요!</StReviewBannerTitle>
       <StReviewBannerMenu>
         {data.slice(0, 3).map((item) => (
-          <StReviewBannerItem>
+          <StReviewBannerItem key={item.id}>
             <h3 className="banner-item-title">
               <span className="banner-item-status">답변진행 중</span>
               <a href={"/detail/" + item.id}>{item.title}</a>

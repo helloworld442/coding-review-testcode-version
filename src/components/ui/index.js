@@ -5,3 +5,4 @@ export * from "./Button";
 export * from "./Input";
 export * from "./TextArea";
 export * from "./Tag";
+export * from "./Pagnation";

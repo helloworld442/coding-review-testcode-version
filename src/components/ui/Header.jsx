@@ -16,8 +16,8 @@ const Header = ({ isBackground }) => {
   }, []);
 
   return (
-    <StHeader isBackground={isBackground} $active={scrollY <= 50}>
-      <StHeaderNav isBackground={isBackground} $active={scrollY <= 50}>
+    <StHeader $isBackground={isBackground} $active={scrollY <= 50}>
+      <StHeaderNav $isBackground={isBackground} $active={scrollY <= 50}>
         <h2 className="header-nav-logo">
           <a href="/">별무리 스튜디오</a>
         </h2>
@@ -33,7 +33,7 @@ const Header = ({ isBackground }) => {
           </li>
         </ul>
       </StHeaderNav>
-      <StHeaderArticle isBackground={isBackground} $active={scrollY <= 50}>
+      <StHeaderArticle $isBackground={isBackground} $active={scrollY <= 50}>
         <div className="header-aside-desc">
           <h2>코드리뷰 사이트 별무리</h2>
           <h4>서로 코드를 리뷰하는 사이트입니다</h4>
@@ -62,7 +62,7 @@ const StHeader = styled.header`
   transition: all 0.5s ease-in-out;
 
   ${(props) =>
-    props.isBackground &&
+    props.$isBackground &&
     props.$active &&
     css`
       background: #403a6b;
@@ -86,7 +86,7 @@ const StHeaderNav = styled.nav`
   z-index: 100;
 
   ${(props) =>
-    props.isBackground &&
+    props.$isBackground &&
     props.$active &&
     css`
       border: none;
@@ -124,7 +124,7 @@ const StHeaderArticle = styled.article`
   opacity: 0;
 
   ${(props) =>
-    props.isBackground &&
+    props.$isBackground &&
     css`
       display: flex;
     `}

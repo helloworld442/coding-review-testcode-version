@@ -1,10 +1,11 @@
 import { styled } from "styled-components";
+import { device } from "../../utils/_media";
 import { ReviewItem } from "./ReviewItem";
 import { ReviewCategory } from "./ReviewCategory";
 import { ReviewSearch } from "./ReviewSearch";
+import { Pagnation } from "../ui";
 import { useQuery } from "react-query";
 import { getReviews } from "../../api/review";
-import { device } from "../../utils/_media";
 
 const ReviewList = () => {
   const { isLoading, isError, data, error } = useQuery("reviews", getReviews, {
@@ -29,6 +30,8 @@ const ReviewList = () => {
           <ReviewItem key={item.id} review={item} />
         ))}
       </StReviewList>
+
+      <Pagnation totalPages={data.length} itemPerPages={6} />
     </StReviewListBox>
   );
 };

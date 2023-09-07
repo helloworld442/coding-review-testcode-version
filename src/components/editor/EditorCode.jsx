@@ -88,17 +88,19 @@ const StEditorCodeNumber = styled.ul`
 `;
 
 const StEditorCode = styled.div`
-  position: absolute;
-  right: 0;
-  width: 95%;
-  box-sizing: border-box;
-  font-size: 1rem;
-  font-weight: 400;
-  font-family: monospace;
-  color: #eee;
-  caret-color: red;
-  white-space: pre-wrap;
-  overflow-y: hidden;
+  pre {
+    position: absolute;
+    right: 0;
+    width: 95%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: monospace;
+    color: #eee;
+    caret-color: red;
+    white-space: pre-wrap;
+    overflow-y: hidden;
+  }
   line-height: 1.5rem;
 
   .highlight {
