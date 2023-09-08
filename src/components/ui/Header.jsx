@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { css, keyframes, styled } from "styled-components";
 import { device } from "../../utils/_media";
+import * as Modal from "./Modal";
+import { ReactComponent as Xmark } from "../../assets/x-solid (1).svg";
+import { SignIn } from "../user";
 
 const Header = ({ isBackground }) => {
   const [scrollY, setScrollY] = useState(0);
@@ -26,10 +29,14 @@ const Header = ({ isBackground }) => {
             <a href="/write">글쓰기</a>
           </li>
           <li className="header-nav-item">
-            <a href="#">회원가입</a>
-          </li>
-          <li className="header-nav-item">
-            <a href="#">로그인</a>
+            <Modal.Container>
+              <Modal.Trigger trigger="로그인" />
+              <Modal.OverLay />
+              <Modal.Content>
+                <SignIn />
+                <Modal.Close trigger={<Xmark />} />
+              </Modal.Content>
+            </Modal.Container>
           </li>
         </ul>
       </StHeaderNav>

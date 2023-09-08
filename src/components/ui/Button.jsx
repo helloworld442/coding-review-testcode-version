@@ -1,8 +1,8 @@
 import { css, styled } from "styled-components";
 
-const Button = ({ children, size, fullWidth, primary, ...rest }) => {
+const Button = ({ children, size, fullWidth, primary, disabled, ...rest }) => {
   return (
-    <StButton size={size} fullWidth={fullWidth} primary={primary} {...rest}>
+    <StButton size={size} fullWidth={fullWidth} primary={primary} disabled={disabled} {...rest}>
       {children}
     </StButton>
   );
@@ -20,6 +20,7 @@ const StButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   ${(props) =>
     props.size === "large" &&
@@ -62,7 +63,15 @@ const StButton = styled.button`
     props.fullWidth &&
     css`
       width: 100%;
-      height: 80px;
+      height: 64px;
+    `}
+
+  ${(props) =>
+    props.disabled &&
+    css`
+      border: 4px solid #c3c8d5;
+      background: #c3c8d5;
+      cursor: not-allowed;
     `}
 `;
 
