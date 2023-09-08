@@ -65,7 +65,7 @@ const StHeader = styled.header`
   position: relative;
   width: 100%;
   height: auto;
-  background: #f8f8f7;
+  background: #f0f0f5;
   transition: all 0.5s ease-in-out;
 
   ${(props) =>

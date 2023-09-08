@@ -51,8 +51,7 @@ const StInputContent = styled.div`
   height: 56px;
   padding: 12px;
   box-sizing: border-box;
-  border: 2px solid #bbb;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: #fff;
 
   pre,

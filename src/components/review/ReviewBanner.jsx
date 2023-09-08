@@ -58,16 +58,19 @@ const ReviewBanner = () => {
 
 const StReviewBanner = styled.div`
   width: 100%;
-  height: auto;
-  margin-bottom: 108px;
+  height: 350px;
+  background: rgb(64, 58, 107, 1);
+  margin-top: 80px;
+  margin-bottom: 172px;
 `;
 
 const StReviewBannerTitle = styled.h1`
   width: calc(100% - 72px);
-  margin: 36px auto;
-  font-size: 2rem;
+  padding: 36px 0;
+  margin: 0 auto;
+  font-size: 1.6rem;
   font-weight: 400;
-  color: #333;
+  color: #eee;
 `;
 
 const StReviewBannerMenu = styled.ul`
@@ -89,8 +92,7 @@ const StReviewBannerItem = styled.li`
   height: 100%;
   padding: 24px;
   box-sizing: border-box;
-  border: 2px solid #bbb;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: #fff;
   cursor: pointer;
   transition: all 0.8s ease-in-out;
@@ -135,7 +137,7 @@ const StReviewBannerItem = styled.li`
   }
 
   .banner-item-content {
-    margin-bottom: 36px;
+    margin-bottom: 48px;
   }
 
   .banner-item-problem,

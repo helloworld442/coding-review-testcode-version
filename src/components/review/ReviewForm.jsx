@@ -262,7 +262,7 @@ const StReviewForm = styled.form`
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 36px;
 
   @media ${device.tablet} {

@@ -42,8 +42,7 @@ const StReviewListBox = styled.div`
   height: auto;
   padding: 24px;
   box-sizing: border-box;
-  border: 2px solid #bbb;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   background: #fff;
 `;
 

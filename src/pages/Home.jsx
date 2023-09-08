@@ -4,7 +4,7 @@ import { Footer, Header, Layout } from "../components/ui";
 const Home = () => {
   return (
     <Layout>
-      <Header isBackground />
+      <Header />
       <ReviewTemplate>
         <ReviewBanner />
         <ReviewCenter />

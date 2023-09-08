@@ -68,7 +68,7 @@ const SignIn = () => {
       <Button size="medium" fullWidth="true" disabled={!form.email || !form.password}>
         로그인
       </Button>
-      <AuthSocialInput src={KakaoLogin} />
+      <AuthSocialButton src={KakaoLogin} />
       <AuthLink>
         아직 코드리뷰 회원이 아니신가요? <span>회원가입</span>
       </AuthLink>
@@ -125,7 +125,7 @@ const AuthInput = styled.input`
     `}
 `;
 
-const AuthSocialInput = styled.img`
+const AuthSocialButton = styled.img`
   width: 100%;
   height: auto;
   object-fit: contain;

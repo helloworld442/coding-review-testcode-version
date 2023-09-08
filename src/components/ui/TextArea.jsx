@@ -46,8 +46,8 @@ const StTextAreaValue = styled.textarea`
   height: 200px;
   padding: 12px;
   box-sizing: border-box;
-  border: 2px solid #bbb;
-  border-radius: 8px;
+  border: none;
+  border-radius: 0.5rem;
   outline: none;
   font-size: 1.4rem;
   font-weight: 400;
