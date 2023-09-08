@@ -247,6 +247,12 @@ const StReviewFormBanner = styled.article`
       color: #eee;
     }
   }
+
+  @media ${device.tablet} {
+    .form-banner-box {
+      width: 700px;
+    }
+  }
 `;
 
 const StReviewForm = styled.form`
@@ -255,6 +261,8 @@ const StReviewForm = styled.form`
   margin: 0 auto;
   box-sizing: border-box;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 36px;
 
   @media ${device.tablet} {
@@ -314,11 +322,19 @@ const StReviewFormContent = styled.div`
 const ReviewCodeFormBox = styled.div`
   width: 100%;
   height: auto;
+
+  @media ${device.tablet} {
+    width: 700px;
+  }
 `;
 
 const ReviewInfoFormBox = styled.div`
   width: 100%;
   height: auto;
+
+  @media ${device.tablet} {
+    width: 700px;
+  }
 `;
 
 export { ReviewForm };

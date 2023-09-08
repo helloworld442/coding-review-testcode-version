@@ -15,7 +15,8 @@ const SignIn = () => {
 
   const validatePassword = (password) => {
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!passwordRegex.test(password)) return "페스워드 형식을 지켜주세요";
+    if (!passwordRegex.test(password))
+      return "(8자리 이상 , 대소문자 포함 , 특수문자 포함 , 숫자 포함)";
     return;
   };
 
