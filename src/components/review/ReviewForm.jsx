@@ -267,6 +267,7 @@ const StReviewForm = styled.form`
 
   @media ${device.tablet} {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
